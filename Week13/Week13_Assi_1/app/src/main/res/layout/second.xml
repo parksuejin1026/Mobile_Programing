@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00FF00">
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="돌아가기"
+        android:id="@+id/btnReturn2"/>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <RadioButton
+            android:id="@+id/rdoThird"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="third Layout" />
+
+        <RadioButton
+            android:id="@+id/rdoFourth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="fourth Layout" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnNew"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="새 화면 열기" />
+
+</LinearLayout>
