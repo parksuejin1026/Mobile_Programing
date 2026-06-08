@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Week11_Assi_1</string>
+    <string name="drawer_outside">서랍 밖</string>
+    <string name="drawer_handle">손잡이</string>
+    <string name="drawer_inside">서랍 안</string>
+</resources>

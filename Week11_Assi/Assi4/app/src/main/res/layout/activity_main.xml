@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    최상위 레이아웃: LinearLayout (Vertical)
+    전체 화면을 수직으로 나누어 상단에는 주소창과 버튼을, 하단에는 웹뷰를 배치합니다.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+
+    <!--
+        상단 입력창 영역: LinearLayout (Horizontal)
+        가로 방향으로 URL 입력창, 이동 버튼, 이전 버튼을 나란히 배치합니다.
+        layout_height="wrap_content"로 설정하여 내용물만큼의 높이만 차지하게 합니다.
+    -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!--
+            URL 입력창 (EditText):
+            - layout_weight="1": 가로 공간 중 버튼들이 차지하고 남은 공간을 모두 채웁니다.
+            - inputType="text": 일반 텍스트 입력을 허용합니다.
+        -->
+        <EditText
+            android:id="@+id/edtUrl"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="URL을 입력하세요"
+            android:inputType="text" />
+
+        <!-- [이동] 버튼: 클릭 시 입력한 주소로 이동하는 트리거 역할을 합니다. -->
+        <Button
+            android:id="@+id/btnMove"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이동" />
+
+        <!-- [이전] 버튼: 클릭 시 이전 페이지로 돌아가는 기능을 수행합니다. -->
+        <Button
+            android:id="@+id/btnPrev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이전" />
+    </LinearLayout>
+
+    <!--
+        웹뷰 (WebView):
+        - 실제 웹 페이지가 렌더링되어 화면에 보여지는 영역입니다.
+        - layout_height="match_parent"로 설정하여 상단 영역을 제외한 나머지 화면 전체를 차지하게 합니다.
+    -->
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>
