@@ -34,15 +34,16 @@ public class MainActivity extends AppCompatActivity {
                                     "이레느깡 단 베르양", "잠자는 소녀", "테라스의 두 자매",
                                     "피아노 레슨", "피아노 앞의 소녀들", "해변에서"};
 
-        for (int i = 0; i < imageId.length; i++) {
-            final int index;
-            index = i;
-            image[index] = (ImageView) findViewById(imageId[index]);
-            image[index].setOnClickListener(new View.OnClickListener() {
+        for (int i = 0; i < imageId.length; i++) { // ID 개수만큼 반복
+            final int index; // 인덱스라는 상수 변수 생성
+            index = i; // 인덱스는 i의 값을 갖게 설정
+            image[index] = (ImageView) findViewById(imageId[index]); // 이미지뷰의 아이디 삽입
+            image[index].setOnClickListener(new View.OnClickListener() { // 이미지를 클릭하면
                 @Override
                 public void onClick(View view) {
-                    voteCount[index]++;
+                    voteCount[index]++; // 그 인덱스의 투표횟수가 1회 상승
                     Toast.makeText(getApplicationContext(), imgName[index] + ": 총 " + voteCount[index] + "표", Toast.LENGTH_SHORT).show();
+                    // 토스트 메시지로 그 이미지의 이름의 표 개수
                 }
             });
         }

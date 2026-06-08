@@ -15,34 +15,30 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 
 public class MainActivity extends AppCompatActivity {
-    Chronometer chrono;
-    Button btnStart, btnEnd;
-    RadioButton rdoCal, rdoTime;
-    CalendarView calendarView;
-    TimePicker tPicker;
-    TextView tvYear, tvMonth, tvDay, tvHour, tvMinute;
     int selectYear, selectMonth, selectDay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_main);
 
-        btnStart = findViewById(R.id.btnStart);
-        btnEnd = findViewById(R.id.btnEnd);
-        chrono = findViewById(R.id.chronometer);
+        Button btnStart = findViewById(R.id.btnStart);
+        Button btnEnd = findViewById(R.id.btnEnd);
+        Chronometer chrono = findViewById(R.id.chronometer);
 
-        rdoCal = findViewById(R.id.rdoCal);
-        rdoTime = findViewById(R.id.rdoTime);
+        RadioButton rdoCal = findViewById(R.id.rdoCal);
+        RadioButton rdoTime = findViewById(R.id.rdoTime);
 
-        calendarView = findViewById(R.id.calendarView);
-        tPicker = findViewById(R.id.timePicker);
+        CalendarView calendarView = findViewById(R.id.calendarView);
+        TimePicker tPicker = findViewById(R.id.timePicker);
 
-        tvYear = findViewById(R.id.tvYear);
-        tvMonth = findViewById(R.id.tvMonth);
-        tvDay = findViewById(R.id.tvDay);
-        tvHour = findViewById(R.id.tvHour);
-        tvMinute = findViewById(R.id.tvMinute);
+        TextView tvYear = findViewById(R.id.tvYear);
+        TextView tvMonth = findViewById(R.id.tvMonth);
+        TextView tvDay = findViewById(R.id.tvDay);
+        TextView tvHour = findViewById(R.id.tvHour);
+        TextView tvMinute = findViewById(R.id.tvMinute);
+
+
 
         tPicker.setVisibility(View.INVISIBLE);
         calendarView.setVisibility(View.INVISIBLE);
@@ -50,8 +46,8 @@ public class MainActivity extends AppCompatActivity {
         rdoCal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tPicker.setVisibility(View.INVISIBLE);
-                calendarView.setVisibility(View.VISIBLE);
+                tPicker.setVisibility(View.INVISIBLE); // 타임피커 보이게
+                calendarView.setVisibility(View.VISIBLE); // 캘린더뷰 끄기
             }
         });
 
@@ -89,10 +85,10 @@ public class MainActivity extends AppCompatActivity {
 
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
-            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int day) {
                 selectYear = year;
                 selectMonth = month + 1;
-                selectDay = dayOfMonth;
+                selectDay = day;
             }
         });
     }
