@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+    집중 학습 타이머 앱
+
+    사용 위젯
+    - Chronometer : 학습 시간 측정
+    - SeekBar     : 목표 학습 시간 선택
+    - ProgressBar : 학습 진행률 표시
+    - Button      : 시작, 정지, 초기화
+    - TextView    : 목표 시간, 진행률, 상태 메시지 출력
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <!-- 앱 제목 -->
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="집중 학습 타이머"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="20dp" />
+
+    <!-- 목표 학습 시간 출력 -->
+    <TextView
+        android:id="@+id/tvGoalTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="목표 학습 시간 : 10분"
+        android:textSize="18sp"
+        android:layout_marginBottom="10dp" />
+
+    <!--
+        목표 시간 선택용 SeekBar
+
+        Java 코드에서 다음과 같이 사용
+        0 → 10분
+        1 → 20분
+        2 → 30분
+        3 → 40분
+        4 → 50분
+        5 → 60분
+    -->
+    <SeekBar
+        android:id="@+id/seekBarGoal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp" />
+
+    <!-- Chronometer : 학습 경과 시간 표시 -->
+    <Chronometer
+        android:id="@+id/chronometerStudy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:format="학습 시간 : %s"
+        android:layout_marginBottom="25dp" />
+
+    <!-- 진행률 텍스트 -->
+    <TextView
+        android:id="@+id/tvProgress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="진행률 : 0%"
+        android:textSize="18sp"
+        android:layout_marginBottom="10dp" />
+
+    <!-- 가로형 ProgressBar -->
+    <ProgressBar
+        android:id="@+id/progressStudy"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="100"
+        android:progress="0"
+        android:layout_marginBottom="25dp" />
+
+    <!-- 현재 상태 메시지 -->
+    <TextView
+        android:id="@+id/tvStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="목표 시간을 선택한 후 시작 버튼을 누르세요."
+        android:textSize="17sp"
+        android:gravity="center"
+        android:layout_marginBottom="30dp" />
+
+    <!-- 버튼 영역 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnStart"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="시작" />
+
+        <Button
+            android:id="@+id/btnStop"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="정지"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp" />
+
+        <Button
+            android:id="@+id/btnReset"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="초기화" />
+
+    </LinearLayout>
+
+</LinearLayout>
